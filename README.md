@@ -17,7 +17,21 @@ This project contains scripts to control DACs (Digital-to-Analog Converters) and
   - Set output voltage.
   - Measure output voltage and current.
 
+### Setting Up the Environment
 
+1. **Install Python:**
+    - Ensure Python 3.x is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+
+2. **Set Up a Virtual Environment (optional but recommended):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. **Install Required Libraries:**
+    ```bash
+    pip install pyftdi pyvisa
+    ```
 
 ## Acknowledgments
 
