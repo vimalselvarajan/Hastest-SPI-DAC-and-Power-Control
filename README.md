@@ -66,6 +66,8 @@ This project contains scripts to control DACs (Digital-to-Analog Converters) and
     - Open Zadig and select the FTDI device from the list.
     - Select `WinUSB` (or `libusb-win32` if `WinUSB` is not available) as the driver.
     - Click `Replace Driver` to install the driver. This allows the `pyftdi` library to communicate with the FTDI device.
+    - ![Screenshot 2024-07-06 214212](https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control/assets/75275299/c52ff8d3-3639-4508-887c-2a1fbdf6f7e2)
+
 
 3. **Connect the DAC:**
     - Connect the DAC to the FTDI chip according to the DAC and FTDI datasheets. Ensure SPI connections (MOSI, MISO, SCLK, CS) are correctly made.
