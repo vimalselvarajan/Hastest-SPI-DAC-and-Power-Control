@@ -4,7 +4,7 @@
 
 This project contains scripts to control DACs (Digital-to-Analog Converters) and power supplies via SPI (Serial Peripheral Interface) using the `pyftdi` and `pyvisa` libraries. The scripts demonstrate setting DAC ranges and voltages, as well as reading chip IDs and controlling power supplies.
 
-### Features
+## Features
 
 - **DAC Control via SPI:**
   - Set DAC range.
@@ -16,6 +16,29 @@ This project contains scripts to control DACs (Digital-to-Analog Converters) and
   - Query power supply status.
   - Set output voltage.
   - Measure output voltage and current.
+
+## Requirements
+
+- Python 3.x
+- `pyftdi` library
+- `pyvisa` library
+
+## Installation
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/yourusername/SPI_DAC_and_Power_Control.git
+    cd SPI_DAC_and_Power_Control
+    ```
+
+2. **Install the required Python libraries:**
+
+    ```bash
+    pip install pyftdi pyvisa
+    ```
+
+## Step-by-Step Process Guide
 
 ### Setting Up the Environment
 
