@@ -1,4 +1,8 @@
-from pyftdi.spi import SpiController
+import time
+from pyftdi.ftdi import Ftdi
+from pyftdi.spi import SpiController, SpiPort
+from typing import Any, Iterable, Mapping, Optional, Set, Union
+
 
 def read_chip_id(spi_port):
     chip_id_low_address = 0x04
@@ -73,13 +77,17 @@ def enable_register_update(spi_port):
     spi_port.exchange(write_buf, duplex=True)
 
 if __name__ == '__main__':
+    Ftdi.show_devices()
     spi = SpiController()
+
     spi.configure('ftdi://ftdi:232h:FT8NUKWS/1')
     amc = spi.get_port(cs=0, freq=1E6, mode=0)
+
 
     chip_id = read_chip_id(amc)
 
     set_dac_range(amc, range_value=5)
     set_dac_voltage(amc, dac_channel=0, voltage=2.5)
-    
-    enable_register_update(amc)
+
+
+    gg = 1
