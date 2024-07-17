@@ -134,10 +134,10 @@ def main():
     # Read and print device configuration register (0x02) from the device.
     read_device_config_register(amc)
 
-    #Turn on the reference voltage PREF by writing to the appropriate register.
+    # Turn on the reference voltage PREF by writing to the appropriate register.
     turn_on_reference_voltage(amc)
 
-    #Wait 10sec
+    # Wait 10sec
     time.sleep(10)
 
     # Set DAC range
