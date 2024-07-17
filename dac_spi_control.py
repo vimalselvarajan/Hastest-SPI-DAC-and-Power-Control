@@ -4,89 +4,145 @@ from pyftdi.spi import SpiController, SpiPort
 from typing import Any, Iterable, Mapping, Optional, Set, Union
 
 def read_register(spi_port: SpiPort, address: int, length: int = 1) -> bytes:
-    """Read byte(s) from device register
-
-        :param spi_port: SPI port of the device
-        :param address: starting address of the register 
-        :param length: number of registers to read 
-        :return: bytes read from the device
     """
-    send_buf = [0] * (2 + length)
-    send_buf[0] = 0x80 | ((address & 0x7F00) >> 8)
-    send_buf[1] = address & 0xFF
-    response_buf = spi_port.exchange(send_buf,  duplex=True)
+    Read byte(s) from device register.
+
+    Parameters:
+        spi_port (SpiPort): SPI port of the device.
+        address (int): Starting address of the register.
+        length (int): Number of registers to read. Defaults to 1.
+
+    Returns:
+        bytes: Bytes read from the device.
+
+    """
+    # Initialize send_buf as a bytearray with the required size
+    send_buf = bytearray(2 + length)  # Pre-fill with zeros is default for bytearray
+
+    # Set the command byte and address
+    send_buf[0] = 0x80 | ((address & 0x7F00) >> 8)  # Command byte with read flag
+    send_buf[1] = address & 0xFF  # Lower 8 bits of the address
+
+    # Exchange data with the device
+    response_buf = spi_port.exchange(send_buf, duplex=True)
+
+    # Extract the relevant portion from the response
     data = response_buf[-length:]
+
     return data
 
-def write_register(spi_port: SpiPort, address: int,  data: Union[int, bytes, bytearray, Iterable[int]]) -> None:
-    """Write byte(s) to device register
-
-        :param spi_port: SPI port of the device
-        :param address: starting address of the register 
-        :param data: byte(s) to write
+def write_register(spi_port: SpiPort, address: int, data: Union[int, bytes, bytearray, Iterable[int]]) -> None:
     """
+    Write byte(s) to device register.
+
+    Args:
+        spi_port (SpiPort): SPI port of the device.
+        address (int): Starting address of the register.
+        data (Union[int, bytes, bytearray, Iterable[int]]): Byte(s) to write.
+
+    Raises:
+        ValueError: If data is not a valid type or empty.
+    """
+    # Normalize data into a list of bytes
     if isinstance(data, int):
         data = [data]
-    length = len(data)
-    send_buf = [0] * (2 + length)
-    send_buf[0] = 0x00 | ((address & 0x7F00) >> 8)
-    send_buf[1] = address & 0xFF
-    for index, value in enumerate(data):
-        send_buf[2 + index] = value & 0xFF
+    elif isinstance(data, (bytes, bytearray)):
+        data = list(data)
+    elif isinstance(data, Iterable):
+        data = list(data)
+    else:
+        raise ValueError("Unsupported data type for SPI write operation.")
+    
+    if not data:
+        raise ValueError("Data to write must not be empty.")
+
+    # Calculate the total size needed for send_buf: 2 bytes for address + length of data
+    send_buf = bytearray(2 + len(data))
+
+    # Set the command byte and address in send_buf
+    send_buf[0] = 0x00 | ((address & 0x7F00) >> 8)  # Command byte with the most significant bits of address
+    send_buf[1] = address & 0xFF  # Least significant bits of address
+
+    # Set the data, ensuring each value fits into one byte
+    for index, val in enumerate(data):
+        send_buf[2 + index] = val & 0xFF  # Start from position 2
+
+    # Send the data to the device
     spi_port.exchange(send_buf, duplex=True)
 
-def read_chip_id(spi_port):
-    chip_id_low_address = 0x04
-    chip_id_high_address = 0x05
+def soft_reset(spi_port: SpiPort):
+    write_register(spi_port, 0x00, 0xB0) 
+    time.sleep(1)
 
-    chip_id_low = read_register(spi_port, chip_id_low_address)[0]
-    chip_id_high = read_register(spi_port, chip_id_high_address)[0]
+    print("Soft reset complete.")
 
-    chip_id = (chip_id_high << 8) | chip_id_low
-    return chip_id
+def read_interface_config_registers(spi_port: SpiPort):
+    address = 0x00
+    length = 2
+    data = read_register(spi_port, address, length)
+    
+    # Verify the values
+    expected_values = [0x30, 0x00]
+    for index, value in enumerate(data):
+        if value == expected_values[index]:
+            print(f"Interface config register: 0x{address + index:02X} Value: 0x{value:02X}")
+        else:
+            print(f"Value at address 0x{address + index:02X} is incorrect: 0x{value:02X}, expected: 0x{expected_values[index]:02X}")
+            return
 
-def set_dac_range(spi_port, range_value):
+def read_device_config_register(spi_port: SpiPort):
+    address = 0x02
+    data = read_register(spi_port, address)
+
+    # Verify the value
+    expected_value = 0x03
+    for index, value in enumerate(data):
+        if value == expected_value:
+            print(f"Device config register: 0x{address + index:02X} Value: 0x{value:02X}")
+        else:
+            print(f"Value at address 0x{address + index:02X} is incorrect: 0x{value:02X}, expected: 0x{expected_value:02X}")
+            return
+
+def turn_on_reference_voltage(spi_port: SpiPort):
+    write_register(spi_port, 0xB4, 0x02)
+
+def set_dac_range(spi_port: SpiPort, range_value: int):
     dac_range_register = 0x1E
 
     if range_value == 5:
-        dac_range_value = 0X77
+        dac_range_value = 0x77
     elif range_value == 10:
-        dac_range_value = 0X66
+        dac_range_value = 0x66
     else:
+        print(f"Unsupported range value: {range_value}")
         return
 
     write_register(spi_port, dac_range_register, dac_range_value)
 
-def set_dac_voltage(spi_port, dac_channel, voltage):
-    # Assume DAC range is 0 to 5V
-    dac_range = 5
-    dac_value = int((4095 / dac_range) * voltage)
-
-    high_byte = (dac_value >> 8) & 0xFF
-    low_byte = dac_value & 0xFF
-
-    dac_base_address = 0x50 
-    dac_low_address = dac_base_address + 2 * dac_channel
-    dac_high_address = dac_low_address + 1
-
-    write_register(spi_port, dac_low_address, low_byte)
-    write_register(spi_port, dac_high_address, high_byte)
-    enable_register_update(spi_port)
-
-def enable_register_update(spi_port):
-    register_update_address = 0x0F
-    register_update_value = 0x01  
-
-    write_register(spi_port, register_update_address, register_update_value)
-
-if __name__ == '__main__':
+def main():
     Ftdi.show_devices()
     spi = SpiController()
-
     spi.configure('ftdi://ftdi:232h:FT8NUKWS/1')
     amc = spi.get_port(cs=0, freq=1E6, mode=0)
 
-    chip_id = read_chip_id(amc)
+    # Perform soft reset
+    soft_reset(amc)
 
-    set_dac_range(amc, range_value=5)
-    set_dac_voltage(amc, dac_channel=0, voltage=2.5)
+    # Read and print interface configuration registers (0x00, 0x01) from the device.
+    read_interface_config_registers(amc)
+
+    # Read and print device configuration register (0x02) from the device.
+    read_device_config_register(amc)
+
+    #Turn on the reference voltage PREF by writing to the appropriate register.
+    turn_on_reference_voltage(amc)
+
+    #Wait 10sec
+    time.sleep(10)
+
+    # Set DAC range
+    set_dac_range(amc, 5)
+
+    
+if __name__ == '__main__':
+    main()
