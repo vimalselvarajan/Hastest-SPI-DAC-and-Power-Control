@@ -37,6 +37,9 @@ This project contains scripts to control DACs (Digital-to-Analog Converters) and
     ```bash
     pip install pyftdi pyvisa
     ```
+    ```bash
+    pip install pyftdi
+    ```
 
 ## Step-by-Step Process Guide
 
