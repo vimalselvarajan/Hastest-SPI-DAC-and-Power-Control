@@ -47,3 +47,20 @@ git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.g
 | VGG3_P        | Keysight E36234A – Output 2     | 60V, 10A, 200W     |
 | VDD2          | Keysight N5748A                 | 80V, 9.5A, 760W    |
 | VDD3_C, VDD3_P| Keysight N5748A                 | 80V, 9.5A, 760W    |
+
+### DAC AMC7836/Current Sense Power Supplies
+
+| Voltage Input | Description                    | Specification   |
+|---------------|--------------------------------|-----------------|
+| VCC           | Keysight E36312A – Output 1    | 6V, 5A, 30W     |
+| VEE           | Keysight E36312A – Output 2    | 25V, 1A, 25W    |
+| 3.3V          | Powered by FT2232/USB port     | -               |
+
+### DAQ Equipment
+
+| Current Output | Description                       | 
+|----------------|-----------------------------------|
+| IDD1           | Keysight DAQ970A with 3x DAQM900A | 
+| IDD2           | Keysight DAQ970A with 3x DAQM900A | 
+| IDD3           | Keysight DAQ970A with 3x DAQM900A | 
+
