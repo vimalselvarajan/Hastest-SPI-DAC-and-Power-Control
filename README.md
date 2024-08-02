@@ -8,7 +8,7 @@ The `renesas_ftdi_cable` folder includes multiple Python scripts, each tailored 
 
 1. **AMC7836 Test (`amc7836_test.py`)**: Configures and tests the AMC7836 DAC, including writing to and reading from registers.
 2. **DAQ Measurement Test (`daq_measure_test.py`)**: This script measures voltage across specified channels using the Keysight DAQ970A. It utilizes the MEASure subsystem, which simplifies programming measurements by using default parameters. With the MEASure queries, you can set the function, range, and resolution in a single command. The results are then directly sent to the instrument’s output buffer, making this method the easiest way to perform measurements with predefined settings.
-3. **DAQ Scan Test (`daq_scan_test.py`)**: This script configures and performs a scan for voltage measurements on specified channels using the Keysight DAQ970A. The scanning feature is advantageous as it allows for asynchronous operation; measurements are conducted in the background, enabling other tasks to be performed concurrently without immediate return of values. This functionality enhances efficiency, especially in complex or time-intensive testing environments.
+3. **DAQ Scan Test (`daq_scan_test.py`)**: This script configures and performs a scan for voltage measurements on specified channels using the Keysight DAQ970A. The scanning feature is advantageous as it allows for asynchronous operation; measurements are conducted in the background, enabling other tasks to be performed concurrently without immediate return of values. 
 4. **F84010 Test (`f84010_test.py`)**: Comprehensive test script that configures both the DAC and DAQ for a specific hardware testing scenario, including a power-up and power-down sequence.
 
 ## Prerequisites
