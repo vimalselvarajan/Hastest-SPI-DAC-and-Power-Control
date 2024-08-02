@@ -1,87 +1,31 @@
-# SPI DAC and Power Control
+# Instrumentation Automation Library
+
+This repository contains a series of Python scripts designed to automate various instrumentation tests using DAC and DAQ hardware. The primary devices interfaced in these scripts are Keysight's DAQ970A Data Acquisition System and the AMC7836 Digital-to-Analog Converter. These scripts demonstrate initialization, configuration, data acquisition, and control of various electronic components and circuits, aiming to facilitate automated testing and data logging.
 
 ## Overview
 
-This project contains scripts to control DACs (Digital-to-Analog Converters) and power supplies via SPI (Serial Peripheral Interface) using the `pyftdi` and `pyvisa` libraries. The scripts demonstrate setting DAC ranges and voltages, as well as reading chip IDs and controlling power supplies.
+The repository is structured into multiple Python scripts, each tailored for specific test setups:
 
-## Features
+1. **AMC7836 Test (`amc7836_test.py`)**: Configures and tests the AMC7836 DAC, including writing to and reading from registers.
+2. **DAQ Measurement Test (`daq_measure_test.py`)**: Measures voltage across specified channels using the Keysight DAQ970A.
+3. **DAQ Scan Test (`daq_scan_test.py`)**: Configures and performs a scan for voltage measurements on specified channels using the DAQ970A.
+4. **F84010 Test (`f84010_test.py`)**: Comprehensive test script that configures both the DAC and DAQ for a specific hardware testing scenario, including a power-up and power-down sequence.
 
-- **DAC Control via SPI:**
-  - Set DAC range.
-  - Set DAC voltage.
-  - Enable register updates.
-  - Read chip ID.
-
-- **Power Supply Control via USB:**
-  - Query power supply status.
-  - Set output voltage.
-  - Measure output voltage and current.
-
-## Requirements
+## Prerequisites
 
 - Python 3.x
-- `pyftdi` library
-- `pyvisa` library
+- `numpy`
+- `pyvisa` (For handling communication with instruments via VISA interface)
+
+### Hardware
+
+- Keysight DAQ970A Data Acquisition System
+- AMC7836 Digital-to-Analog Converter
+- Appropriate cabling and connections for communication and power supply
 
 ## Installation
 
-1. **Clone the repository:**
+Clone the repository:
 
-    ```bash
-    git clone https://github.com/yourusername/SPI_DAC_and_Power_Control.git
-    cd SPI_DAC_and_Power_Control
-    ```
-
-2. **Install the required Python libraries:**
-
-    ```bash
-    pip install pyftdi pyvisa
-    ```
-    ```bash
-    pip install pyftdi
-    ```
-
-## Step-by-Step Process Guide
-
-### Setting Up the Environment
-
-1. **Install Python:**
-    - Ensure Python 3.x is installed on your system.
-
-2. **Set Up a Virtual Environment (optional but recommended):**
-    ```bash
-    python -m venv venv
-    venv\Scripts\activate
-    ```
-
-3. **Install Required Libraries:**
-    ```bash
-    pip install pyftdi pyvisa
-    ```
-    ```bash
-    pip install pyftdi
-    ```
-
-### Connecting the Hardware(Add photos)
-
-1. **Connect the FTDI Chip:**
-    - Connect your FTDI SPI adapter (e.g., FT232H or FT2232H) to your computer via USB.
-
-2. **Configure Zadig:**
-    - Download Zadig from [zadig.akeo.ie](https://zadig.akeo.ie/).
-    - Open Zadig and select the FTDI device from the list.
-    - Select `WinUSB` (or `libusb-win32` if `WinUSB` is not available) as the driver.
-    - Click `Replace Driver` to install the driver. This allows the `pyftdi` library to communicate with the FTDI device.
-    - ![Screenshot 2024-07-06 214212](https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control/assets/75275299/c52ff8d3-3639-4508-887c-2a1fbdf6f7e2)
-
-
-3. **Connect the DAC:**
-    - Connect the DAC to the FTDI chip according to the DAC and FTDI datasheets. Ensure SPI connections (MOSI, MISO, SCLK, CS) are correctly made.
-
-4. **Connect the Power Supply:**
-    - Connect the power supply to your computer via USB.
-
-## Acknowledgments
-
-- This project uses the `pyftdi` library for SPI communication.
-- This project uses the `pyvisa` library for USB communication with power supplies.
+```bash
+git clone <repository-url>
