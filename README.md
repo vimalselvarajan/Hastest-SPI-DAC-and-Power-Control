@@ -24,6 +24,7 @@ The `renesas_ftdi_cable` folder includes multiple Python scripts, each tailored 
 - Keysight DAQ970A Data Acquisition System
 - Texas instruments AMC7836 Digital-to-Analog Converter
 - Keysight E36200 series power supply
+- Future Technology Devices International Ltd C232HM USB 2.0 Hi-Speed to MPSSE Cable
 
 ## Installation
 
