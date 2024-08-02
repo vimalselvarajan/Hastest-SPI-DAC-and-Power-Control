@@ -31,4 +31,4 @@ The `renesas_ftdi_cable` folder includes multiple Python scripts, each tailored 
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.git
