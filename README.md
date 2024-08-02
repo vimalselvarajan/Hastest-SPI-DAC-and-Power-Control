@@ -1,4 +1,4 @@
-# Hastest DAC. DAQ, and power supply control suite
+# Hastest DAC, DAQ, and power supply control suite
 
 This repository contains a series of Python scripts designed to automate various instrumentation tests using DAC and DAQ hardware. The primary devices interfaced in these scripts are Keysight's DAQ970A Data Acquisition System and the AMC7836 Digital-to-Analog Converter. These scripts demonstrate initialization, configuration, data acquisition, and control of various electronic components and circuits, aiming to facilitate automated testing and data logging.
 
