@@ -32,3 +32,7 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.git
+```
+
+## Project Diagram
+![HTOL Test Setup](https://github.com/user-attachments/assets/f3f50c60-c4d4-462b-92d4-fc51cc34d8b1)
