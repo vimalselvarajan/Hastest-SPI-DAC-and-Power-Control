@@ -1,87 +1,34 @@
-# SPI DAC and Power Control
+# Hastest DAC, DAQ, and Power Supply Control Suite
+
+This repository contains a series of Python scripts designed to automate various instrumentation tests using DAC and DAQ hardware. The primary devices interfaced in these scripts are Keysight's DAQ970A Data Acquisition System and the AMC7836 Digital-to-Analog Converter. These scripts demonstrate initialization, configuration, data acquisition, and control of various electronic components and circuits, aiming to facilitate automated testing and data logging.
 
 ## Overview
 
-This project contains scripts to control DACs (Digital-to-Analog Converters) and power supplies via SPI (Serial Peripheral Interface) using the `pyftdi` and `pyvisa` libraries. The scripts demonstrate setting DAC ranges and voltages, as well as reading chip IDs and controlling power supplies.
+The `renesas_ftdi_cable` folder includes multiple Python scripts, each tailored for specific test setups:
 
-## Features
+1. **AMC7836 Test (`amc7836_test.py`)**: This script configures and tests the AMC7836 DAC by performing various register operations, including writing to and reading from them. Specifically, it sets the DAC channels to output -6.5V, demonstrating precise voltage control.
+2. **DAQ Measurement Test (`daq_measure_test.py`)**: This script measures voltage across specified channels using the Keysight DAQ970A. It utilizes the MEASure subsystem, which simplifies programming measurements by using default parameters. With the MEASure queries, you can set the function, range, and resolution in one command. The results are then directly sent to the instrument’s output buffer, making this method the easiest way to perform measurements with predefined settings.
+3. **DAQ Scan Test (`daq_scan_test.py`)**: This script configures and performs a scan for voltage measurements on specified channels using the Keysight DAQ970A. The scanning feature is advantageous as it allows for asynchronous operation; measurements are conducted in the background, enabling other tasks to be performed concurrently without immediate return of values.
+4. **F84010 Test (`f84010_test.py`)**: This script includes the `sdac_vgg` function, which dynamically adjusts the gate voltage using an AMC7836 DAC to achieve a target bias current in a hardware testing scenario. The algorithm starts by setting an initial DAC value and iteratively adjusting the voltage using a binary step method (BSM). Each step modifies the DAC value based on the difference between the target and the measured bias current, refining the gate voltage until the target current is approached without exceeding a specified DAC limit (3072). This method allows precise control of the device under test, ensuring optimal operation.
 
-- **DAC Control via SPI:**
-  - Set DAC range.
-  - Set DAC voltage.
-  - Enable register updates.
-  - Read chip ID.
-
-- **Power Supply Control via USB:**
-  - Query power supply status.
-  - Set output voltage.
-  - Measure output voltage and current.
-
-## Requirements
+## Prerequisites
 
 - Python 3.x
-- `pyftdi` library
-- `pyvisa` library
+- `numpy`
+- `pyvisa` 
+- `pandas` 
+- `pyftdi` 
+
+### Hardware
+
+- Keysight DAQ970A Data Acquisition System
+- Texas instruments AMC7836 Digital-to-Analog Converter
+- Keysight E36200 series power supply
+- C232HM_MPSSE_CABLE USB 2.0 HI-SPEED TO MPSSE CABLE
 
 ## Installation
 
-1. **Clone the repository:**
+Clone the repository:
 
-    ```bash
-    git clone https://github.com/yourusername/SPI_DAC_and_Power_Control.git
-    cd SPI_DAC_and_Power_Control
-    ```
-
-2. **Install the required Python libraries:**
-
-    ```bash
-    pip install pyftdi pyvisa
-    ```
-    ```bash
-    pip install pyftdi
-    ```
-
-## Step-by-Step Process Guide
-
-### Setting Up the Environment
-
-1. **Install Python:**
-    - Ensure Python 3.x is installed on your system.
-
-2. **Set Up a Virtual Environment (optional but recommended):**
-    ```bash
-    python -m venv venv
-    venv\Scripts\activate
-    ```
-
-3. **Install Required Libraries:**
-    ```bash
-    pip install pyftdi pyvisa
-    ```
-    ```bash
-    pip install pyftdi
-    ```
-
-### Connecting the Hardware(Add photos)
-
-1. **Connect the FTDI Chip:**
-    - Connect your FTDI SPI adapter (e.g., FT232H or FT2232H) to your computer via USB.
-
-2. **Configure Zadig:**
-    - Download Zadig from [zadig.akeo.ie](https://zadig.akeo.ie/).
-    - Open Zadig and select the FTDI device from the list.
-    - Select `WinUSB` (or `libusb-win32` if `WinUSB` is not available) as the driver.
-    - Click `Replace Driver` to install the driver. This allows the `pyftdi` library to communicate with the FTDI device.
-    - ![Screenshot 2024-07-06 214212](https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control/assets/75275299/c52ff8d3-3639-4508-887c-2a1fbdf6f7e2)
-
-
-3. **Connect the DAC:**
-    - Connect the DAC to the FTDI chip according to the DAC and FTDI datasheets. Ensure SPI connections (MOSI, MISO, SCLK, CS) are correctly made.
-
-4. **Connect the Power Supply:**
-    - Connect the power supply to your computer via USB.
-
-## Acknowledgments
-
-- This project uses the `pyftdi` library for SPI communication.
-- This project uses the `pyvisa` library for USB communication with power supplies.
+```bash
+git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.git
