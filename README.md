@@ -39,7 +39,7 @@ git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.g
 
 ## Electrical Characteristics
 
-#DUT Power Supplies: 
+### DUT Power Supplies: 
 
 | Voltage Input | Description                     | Specification      |
 |---------------|---------------------------------|--------------------|
