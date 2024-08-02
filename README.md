@@ -22,8 +22,8 @@ The `renesas_ftdi_cable` folder includes multiple Python scripts, each tailored 
 ### Hardware
 
 - Keysight DAQ970A Data Acquisition System
-- AMC7836 Digital-to-Analog Converter
-- Appropriate cabling and connections for communication and power supply
+- Texas instruments AMC7836 Digital-to-Analog Converter
+- Keysight E36200 series power supply
 
 ## Installation
 
