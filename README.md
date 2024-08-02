@@ -38,3 +38,10 @@ git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.g
 ![HTOL Test Setup](https://github.com/user-attachments/assets/f3f50c60-c4d4-462b-92d4-fc51cc34d8b1)
 
 ## Electrical Characteristics
+
+| Voltage Input | Description                     | Specification      |
+|---------------|---------------------------------|--------------------|
+| VDD1          | Keysight E36234A – Output 1     | 60V, 10A, 200W     |
+| VGG3_P        | Keysight E36234A – Output 2     | 60V, 10A, 200W     |
+| VDD2          | Keysight N5748A                 | 80V, 9.5A, 760W    |
+| VDD3_C, VDD3_P| Keysight N5748A                 | 80V, 9.5A, 760W    |
