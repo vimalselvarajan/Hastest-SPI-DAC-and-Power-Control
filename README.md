@@ -15,9 +15,9 @@ The `renesas_ftdi_cable` folder includes multiple Python scripts, each tailored 
 
 - Python 3.x
 - `numpy`
-- `pyvisa` (For handling communication with instruments via VISA interface)
-- `pandas` (For data manipulation and analysis)
-- `pyftdi` (For FTDI device communication)
+- `pyvisa` 
+- `pandas` 
+- `pyftdi` 
 
 ### Hardware
 
