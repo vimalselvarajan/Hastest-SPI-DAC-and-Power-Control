@@ -47,6 +47,7 @@ This repository contains a series of Python scripts designed to automate various
     - `dac/:` Contains the AMC7836 class which provides methods to control the AMC7836 board via SPI communication
     - `daq/:` Contains the KeysightDaq970a class which provides methods to measure voltage on specified channels
     - `power_supply/:` Contains three classes, each representing a different power supply, with methods to set and measure output voltage and current.
+    - `instrument_base.py:` Provides a foundational interface for interacting with the DAQ and Power supplies
 
 ## Prerequisites
 
