@@ -30,11 +30,13 @@ This repository contains a series of Python scripts designed to automate various
 - `pandas` 
 - `pyftdi` 
 
-### Hardware
+### Hardware Requirements
 
-- Keysight DAQ970A Data Acquisition System
-- Texas instruments AMC7836 Digital-to-Analog Converter
-- Keysight E36200 series power supply
+- AMC7836 DAC
+- Keysight DAQ970A
+- Keysight E36234A power supply
+- Keysight E36312A power supply
+- Keysight N5748A power supply
 - C232HM_MPSSE_CABLE USB 2.0 HI-SPEED TO MPSSE CABLE
 
 ## Installation
