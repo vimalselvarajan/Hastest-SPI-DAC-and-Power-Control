@@ -65,7 +65,7 @@ This repository contains a series of Python scripts designed to automate various
 - Keysight E36234A power supply
 - Keysight E36312A power supply
 - Keysight N5748A power supply
-- C232HM_MPSSE_CABLE USB 2.0 HI-SPEED TO MPSSE CABLE
+- Renesas ft2232
 
 ## Installation
 
