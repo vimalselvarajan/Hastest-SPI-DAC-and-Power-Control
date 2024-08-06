@@ -42,12 +42,13 @@ This repository contains a series of Python scripts designed to automate various
   - `demo.py:` A short demo which tests out the SpiController
   - `main.py:` Initializes the SPI controller and the AMC7836 board, performs a series of configuration steps, sets DAC ranges and voltages, and updates the DAC registers using the pyftdi and custom SPI communication classes.
   - `spi_communications.py:` Facilitates reading from and writing to SPI registers 
-- `renasas_Ftdi_cable/:` Contains code that executes the main project as described in the overview section
+- `renasas_Ftdi_cable/:` Main Project
   - `instrument_lib/:` Facilitates reading from and writing to the AMC7836 DAC, Keysight DAQ970A, and the three power supplies
     - `dac/:` Contains the AMC7836 class which provides methods to control the AMC7836 board via SPI communication
     - `daq/:` Contains the KeysightDaq970a class which provides methods to measure voltage on specified channels
     - `power_supply/:` Contains three classes, each representing a different power supply, with methods to set and measure output voltage and current.
     - `instrument_base.py:` Provides a foundational interface for interacting with the DAQ and Power supplies
+- `main.py:` Contains code that executes the main project as described in the overview section
 
 ## Prerequisites
 
