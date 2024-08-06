@@ -59,6 +59,13 @@ Clone the repository:
 git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.git
 ```
 
+Install the required python libraries:
+```bash
+pip install pyvisa
+pip install pandas
+pip install pyftdi
+```
+
 ## Project Diagram
 ![HTOL Test Setup](https://github.com/user-attachments/assets/7921ea29-ac1d-499d-9e5b-d731a49abcca)
 
