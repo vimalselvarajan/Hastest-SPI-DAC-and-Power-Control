@@ -2,6 +2,37 @@
 
 A Python project for controlling and testing devices under test (DUTs) using various instruments and interfaces.
 
+## Table of Contets:
+
+## Overview
+### [Overview](#overview)
+
+## Features
+### [Features](#features)
+
+## Prerequisites
+### [Prerequisites](#prerequisites)
+
+## Hardware Requirements
+### [Hardware Requirements](#hardware-requirements)
+
+## Installation
+### [Installation](#installation)
+
+## Project Diagram
+### [Project Diagram](#project-diagram)
+
+## Electrical Characteristics
+### [Electrical Characteristics](#electrical-characteristics)
+
+### DUT Power Supplies
+#### [DUT Power Supplies](#dut-power-supplies)
+
+### DAC AMC7836/Current Sense Power Supplies
+#### [DAC AMC7836/Current Sense Power Supplies](#dac-amc7836current-sense-power-supplies)
+
+### DAQ Equipment
+#### [DAQ Equipment](#daq-equipment)
 
 
 ## Overview
