@@ -130,38 +130,66 @@ class DeviceUnderTest:
         # time.sleep(self._delay_sec)
 
     def set_dac_voltage(self, address: int, value: list[int]) -> None:
-        """Set DAC voltage."""
-
         self._amc7836.write_register(address, value)
         self._amc7836.write_register(self._amc7836.REGISTER_ADDRESSES['REG_UPDATE'], 0x01)
     
     def adjust_gate_voltage(self, dac_address_key: str, dac_init_value: int, daq_ch: int, target: float) -> None:
+        """
+        Adjust the gate voltage to reach a target drain current.
+
+        Args:
+        - dac_address_key (str): The key for the DAC address.
+        - dac_init_value (int): The initial DAC value.
+        - daq_ch (int): The DAQ channel.
+        - target (float): The target drain current.
+
+        Returns:
+        - None
+        """
 
         dac_step = [64, 32, 16, 8, 4, 2]
-        #
+        # Define the DAC step values
+
         dac_value = [dac_init_value & 0xFF, dac_init_value >> 8]
-
+        # Initialize the DAC value
+        
         self.set_dac_voltage(self._amc7836.REGISTER_ADDRESSES[dac_address_key], dac_value)
-
+        # Set the initial DAC voltage
+        
         time.sleep(0.1)
-
+        # Wait for 0.1 seconds
+        
         drain_current = self._daq970a.measure_voltage(daq_ch)
         print(f'Drain current: {drain_current:.5f}')
-
+        # Measure the start drain current
+        
         dac_curr_value = dac_init_value
-
+        # Initialize the current DAC value
+        
         for index, val in enumerate(dac_step):
             dac_new_value = dac_curr_value + int(math.copysign(val, target - drain_current))
-            # Limit DAC voltage to less than -2.5V (3072)
+            # Calculate the new DAC value
 
             if dac_new_value < 3072:
+            # Limit the DAC voltage to less than -2.5V (3072)
+
                 dac_value = [dac_new_value & 0xFF, dac_new_value >> 8]
+                # Update the DAC value
+
                 self.set_dac_voltage(self._amc7836.REGISTER_ADDRESSES[dac_address_key], dac_value)
+                # Set the new DAC voltage
+
+                
                 time.sleep(0.1)
+                # Wait for 0.1 seconds
+
                 drain_current = self._daq970a.measure_voltage(daq_ch)
                 print(f'Iteration: {index} Drain current: {drain_current:.5f}')
+                # Measure the drain current
 
             dac_curr_value = dac_init_value
+            # Update the current DAC value
+
 
     def configure_scan(self, interval_count: int, interval_length: int) -> None:
         # Clear the scan list
