@@ -37,6 +37,7 @@ This repository contains a series of Python scripts designed to automate various
 ## Project Structure
 
 datasheets/: Contains the data sheets for required hardware
+pyftdi_cable/: Contains code to control the AMC7836 board using the pyftdi driver. These files are not relevant to the main project but are included as a proof of concept to demonstrate the functionality of the AMC7836 board.
 
 
 ## Prerequisites
