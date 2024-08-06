@@ -36,12 +36,12 @@ This repository contains a series of Python scripts designed to automate various
 
 ## Project Structure
 
-- `datasheets/`: Contains the data sheets for required hardware
+- `datasheets/:` Contains the data sheets for required hardware
 - `pyftdi_cable/:` Contains code to control the AMC7836 board using the pyftdi driver. These files are not relevant to the main project but are included as a proof of concept to demonstrate the functionality of the AMC7836 board.
   - `amc7836.py:` Contains the AMC7836 class provides methods to control the AMC7836 board via SPI communication, including functions for soft reset, configuration register reads, DAC range setting, voltage setting, and enabling or disabling the DAC.
   - `demo.py:` A short demo which tests out the SpiController
   - `main.py:` Initializes the SPI controller and the AMC7836 board, performs a series of configuration steps, sets DAC ranges and voltages, and updates the DAC registers using the pyftdi and custom SPI communication classes.
-  - `spi_communications.py`:
+  - `spi_communications.py:` Facilitates reading from and writing to SPI registers 
 
 
 ## Prerequisites
