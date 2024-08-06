@@ -59,7 +59,7 @@ This repository contains a series of Python scripts designed to automate various
 git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.git
 ```
 
-###Installing 'venv'
+####Installing 'venv'
 If you don't already have venv installed, you can install it using pip:
 ```bash
 python -m venv myenv
