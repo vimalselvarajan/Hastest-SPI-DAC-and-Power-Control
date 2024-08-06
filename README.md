@@ -4,7 +4,7 @@ A Python project for controlling and testing devices under test (DUTs) using var
 
 ## Table of Contets:
 
-## Software
+### Software
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Prerequisites](#prerequisites)
