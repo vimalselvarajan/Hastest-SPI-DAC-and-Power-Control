@@ -45,7 +45,8 @@ This repository contains a series of Python scripts designed to automate various
 - `renasas_Ftdi_cable/:` Contains code that executes the main project as described in the overview section
   - `instrument_lib/:` Facilitates reading from and writing to the AMC7836 DAC, Keysight DAQ970A, and the three power supplies
     - `dac/:` Contains the AMC7836 class which provides methods to control the AMC7836 board via SPI communication
-    - `daq` Contains the KeysightDaq970a class which provides methods to measure voltage on specified channels 
+    - `daq/:` Contains the KeysightDaq970a class which provides methods to measure voltage on specified channels
+    - `power_supply/:` Contains three classes, each representing a different power supply, with methods to set and measure output voltage and current.
 
 ## Prerequisites
 
