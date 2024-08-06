@@ -34,6 +34,11 @@ This repository contains a series of Python scripts designed to automate various
 - Interval-based scanning for DAQ970A
 - Power supply control for Keysight E36234A, E36312A, and N5748A
 
+## Project Structure
+
+datasheets/: Contains the data sheets for required hardware
+
+
 ## Prerequisites
 
 - Python 3.x
