@@ -35,7 +35,8 @@ git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.g
 ```
 
 ## Project Diagram
-![HTOL Test Setup](https://github.com/user-attachments/assets/f3f50c60-c4d4-462b-92d4-fc51cc34d8b1)
+![HTOL Test Setup](https://github.com/user-attachments/assets/2ecd3d6e-e2ab-4d55-aa1e-117bfd7a7d80)
+
 
 ## Electrical Characteristics
 
