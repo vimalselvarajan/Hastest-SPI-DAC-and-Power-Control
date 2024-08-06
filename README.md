@@ -59,6 +59,12 @@ Clone the repository:
 git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.git
 ```
 
+Installing 'venv'
+If you don't already have venv installed, you can install it using pip:
+```bash
+python -m venv myenv
+```
+
 Install the required python libraries:
 ```bash
 pip install pyvisa
