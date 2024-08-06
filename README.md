@@ -5,13 +5,13 @@ A Python project for controlling and testing devices under test (DUTs) using var
 ## Table of Contets:
 
 1. [Overview](#overview)
-### [Features](#features)
-### [Prerequisites](#prerequisites)
-### [Hardware Requirements](#hardware-requirements)
-### [Installation](#installation)
-### [Project Diagram](#project-diagram)
-### [Electrical Characteristics](#electrical-characteristics)
-#### [DAQ Equipment](#daq-equipment)
+2. [Features](#features)
+3. [Prerequisites](#prerequisites)
+4. [Hardware Requirements](#hardware-requirements)
+5. [Installation](#installation)
+6. [Project Diagram](#project-diagram)
+7. [Electrical Characteristics](#electrical-characteristics)
+8. [DAQ Equipment](#daq-equipment)
 
 
 ## Overview
