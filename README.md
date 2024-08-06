@@ -59,7 +59,7 @@ Clone the repository:
 git clone https://github.com/vimalselvarajan/Hastest-SPI-DAC-and-Power-Control.git
 ```
 
-###Installing 'venv'
+Installing 'venv'
 
 If you don't already have venv installed, you can install it using pip:
 ```bash
@@ -68,7 +68,11 @@ python -m venv myenv
 
 Activating the Virtual Environment
 ```bash
-python -m venv myenv
+# On Windows
+myenv\Scripts\activate
+
+# On Linux or macOS
+source myenv/bin/activate
 ```
 
 Install the required python libraries:
