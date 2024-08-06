@@ -4,11 +4,13 @@ A Python project for controlling and testing devices under test (DUTs) using var
 
 ## Table of Contets:
 
+## Software
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Prerequisites](#prerequisites)
 4. [Hardware Requirements](#hardware-requirements)
 5. [Installation](#installation)
+### Hardware 
 6. [Project Diagram](#project-diagram)
 7. [Electrical Characteristics](#electrical-characteristics)
 8. [DAQ Equipment](#daq-equipment)
