@@ -42,7 +42,7 @@ This repository contains a series of Python scripts designed to automate various
   - `demo.py:` A short demo which tests out the SpiController
   - `main.py:` Initializes the SPI controller and the AMC7836 board, performs a series of configuration steps, sets DAC ranges and voltages, and updates the DAC registers using the pyftdi and custom SPI communication classes.
   - `spi_communications.py:` Facilitates reading from and writing to SPI registers 
-- `renasas_Ftdi_cable/:` Contains
+- `renasas_Ftdi_cable/:` Contains code that executes the main project as described in the overview section
 
 ## Prerequisites
 
