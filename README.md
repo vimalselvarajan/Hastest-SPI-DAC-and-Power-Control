@@ -1,21 +1,18 @@
 # Hastest DAC, DAQ, and Power Supply Control Suite
 
-This repository contains a series of Python scripts designed to automate various instrumentation tests using DAC, DAQ, and power supply hardware. These scripts demonstrate initialization, configuration, data acquisition, and control of various electronic components and circuits, aiming to facilitate automated testing and data logging. One of the key features of this project is the adjust_gate_voltage algorithm, which uses a simple iterative approach to adjust the gate voltage of the DUT to reach a target drain current. The algorithm uses a predefined set of DAC step values to incrementally adjust the gate voltage, ensuring that the target current is reached quickly and accurately. Overall this project provides a simple and intuitive way to interact with DUTs, allowing users to focus on testing and validation rather than low-level instrument control. It currently supports the following instruments:
+A Python project for controlling and testing devices under test (DUTs) using various instruments and interfaces.
 
-AMC7836 DAC
-Keysight DAQ970A
-Keysight E36234A power supply
-Keysight E36312A power supply
-Keysight N5748A power supply
+
 
 ## Overview
 
-The `renesas_ftdi_cable` folder includes multiple Python scripts, each tailored for specific test setups:
+This repository contains a series of Python scripts designed to automate various instrumentation tests using DAC, DAQ, and power supply hardware. These scripts demonstrate initialization, configuration, data acquisition, and control of various electronic components and circuits, aiming to facilitate automated testing and data logging. One of the key features of this project is the adjust_gate_voltage algorithm, which uses a simple iterative approach to adjust the gate voltage of the DUT to reach a target drain current. The algorithm uses a predefined set of DAC step values to incrementally adjust the gate voltage, ensuring that the target current is reached quickly and accurately. Overall this project provides a simple and intuitive way to interact with DUTs, allowing users to focus on testing and validation rather than low-level instrument control. It currently supports the following instruments:
 
-1. **AMC7836 Test (`amc7836_test.py`)**: This script configures and tests the AMC7836 DAC by performing various register operations, including writing to and reading from them. Specifically, it sets the DAC channels to output -6.5V, demonstrating precise voltage control.
-2. **DAQ Measurement Test (`daq_measure_test.py`)**: This script measures voltage across specified channels using the Keysight DAQ970A. It utilizes the MEASure subsystem, which simplifies programming measurements by using default parameters. With the MEASure queries, you can set the function, range, and resolution in one command. The results are then directly sent to the instrument’s output buffer, making this method the easiest way to perform measurements with predefined settings.
-3. **DAQ Scan Test (`daq_scan_test.py`)**: This script configures and performs a scan for voltage measurements on specified channels using the Keysight DAQ970A. The scanning feature is advantageous as it allows for asynchronous operation; measurements are conducted in the background, enabling other tasks to be performed concurrently without immediate return of values.
-4. **Gate voltage test(rename) (`algorithim.py`)**: This script includes the `sdac_vgg` function, which dynamically adjusts the gate voltage using an AMC7836 DAC to achieve a target bias current in a hardware testing scenario. The algorithm starts by setting an initial DAC value and iteratively adjusting the voltage using a binary step method (BSM). Each step modifies the DAC value based on the difference between the target and the measured bias current, refining the gate voltage until the target current is approached without exceeding a specified DAC limit (3072). This method allows precise control of the device under test, ensuring optimal operation.
+- AMC7836 DAC
+- Keysight DAQ970A
+- Keysight E36234A power supply
+- Keysight E36312A power supply
+- Keysight N5748A power supply
 
 ## Prerequisites
 
