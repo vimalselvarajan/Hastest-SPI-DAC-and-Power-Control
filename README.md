@@ -63,6 +63,7 @@ This repository contains a series of Python scripts designed to automate various
 ### Hardware Requirements
 
 - AMC7836 DAC
+- BPR-58 1 Ohm shunt resistor
 - Keysight DAQ970A
 - Keysight E36234A power supply
 - Keysight E36312A power supply
