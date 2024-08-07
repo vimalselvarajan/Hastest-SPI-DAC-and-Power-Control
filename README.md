@@ -28,8 +28,6 @@ This repository contains a series of Python scripts designed to automate various
 
 ## Features
 
-- Simple and intuitive way to control DUTs
-- Support for multiple instruments and interfaces
 - Automatic DAC voltage adjustment for target drain current using the adjust_gate_voltage algorithm
 - Interval-based scanning for DAQ970A
 - Power supply control for Keysight E36234A, E36312A, and N5748A
