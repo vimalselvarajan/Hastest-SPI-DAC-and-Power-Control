@@ -53,6 +53,8 @@ This repository contains a series of Python scripts designed to automate various
 ## Prerequisites
 
 - Python 3.x
+- NI Max
+- Zadig
 - `numpy`
 - `pyvisa` 
 - `pandas` 
