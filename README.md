@@ -1,6 +1,6 @@
 # Hastest DAC, DAQ, and Power Supply Control Suite
 
-A Python project for controlling and testing devices under test (DUTs) using various instruments and interfaces.
+A Python project for automating High Temperature Operation Life(HTOL) testing for an RF (Radio Frequency) amplifier module
 
 ## Table of Contets:
 
@@ -18,7 +18,7 @@ A Python project for controlling and testing devices under test (DUTs) using var
 
 ## Overview
 
-This repository contains a series of Python scripts designed to automate High Temperature Operation Life(HTOL) testing using DAC, DAQ, and power supply hardware. These scripts demonstrate initialization, configuration, data acquisition, and control of various electronic components and circuits, aiming to facilitate automated testing and data logging. One of the key features of this project is the adjust_gate_voltage algorithm, which uses a simple iterative approach to adjust the gate voltage of the DUT to reach a target drain current. The algorithm uses a predefined set of DAC step values to incrementally adjust the gate voltage, ensuring that the target current is reached quickly and accurately. Overall this project provides a simple and intuitive way to interact with DUTs, allowing users to focus on testing and validation rather than low-level instrument control. It currently supports the following instruments:
+This repository contains a series of Python scripts designed to conduct High Temperature Operation Life(HTOL) testing using DAC, DAQ, and power supply hardware. These scripts demonstrate initialization, configuration, data acquisition, and control of various electronic components and circuits, aiming to facilitate automated testing and data logging. A central element of this project is the `adjust_gate_voltage algorithm`, which applies a straightforward iterative method to modify the gate voltage of the RF amplifier module. This adjustment ensures the drain current meets the specified target for various stages of the amplifier, including the pre-driver, driver, peaking, and carrier amplifier components. The algorithm uses a predefined set of DAC step values to incrementally adjust the gate voltage, ensuring that the target current is reached quickly and accurately. Overall this project provides a simple and intuitive way to interact with DUTs, allowing users to focus on testing and validation rather than low-level instrument control. It currently supports the following instruments:
 
 - AMC7836 DAC
 - Keysight DAQ970A
