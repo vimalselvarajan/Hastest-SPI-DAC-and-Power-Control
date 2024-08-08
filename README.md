@@ -108,10 +108,10 @@ pip install pyftdi
 
 | Voltage Input | Description                     | Specification      |
 |---------------|---------------------------------|--------------------|
-| VDD1          | Keysight E36234A – Output 1     | 60V, 10A, 200W     |
-| VGG3_P        | Keysight E36234A – Output 2     | 60V, 10A, 200W     |
-| VDD2          | Keysight N5748A                 | 80V, 9.5A, 760W    |
-| VDD3_C, VDD3_P| Keysight N5748A                 | 80V, 9.5A, 760W    |
+| VDD1          | Keysight E36234A – Output 1     | 60V, 10A   |
+| VGG3_P        | Keysight E36234A – Output 2     | 60V, 10A   |
+| VDD2          | Keysight N5748A                 | 80V, 9.5A  |
+| VDD3_C, VDD3_P| Keysight N5748A                 | 80V, 9.5A   |
 
 ### DAC AMC7836/Current Sense Power Supplies
 
